@@ -42,6 +42,35 @@ namespace OrderRabbify.Controllers
             _dbContext.SaveChanges();
         }
 
+        [HttpPost("adicionar-item")]
+        public IActionResult AddItem([FromBody] ItemModel item)
+        {
+            var order = _dbContext.Orders.FirstOrDefault(o => o.OrderId == item.OrderId);
+
+
+            if (order == null)
+            {
+                return BadRequest("ID do pedido não encontrado");
+            }
+
+            ProductService productService = new ProductService();
+            var product = productService.GetProduct(item.ProductId).Result;
+
+            if (product == null)
+            {
+                return BadRequest("Produto não encontrado");
+            }
+
+            // KKKK
+
+            item.ItemPricePaid = product.Price;
+            item.ItemName = product.Name;
+            order.Items.Add(item);
+            _dbContext.SaveChanges();
+
+            return Ok();
+        }
+
         [HttpPut("cancelar/{id}")]
         public IActionResult CancelOrder(int id)
         {
@@ -57,6 +86,7 @@ namespace OrderRabbify.Controllers
 
             return Ok(new { message = "Pedido cancelado com sucesso." });
         }
+
 
     }
 }
