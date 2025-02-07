@@ -9,8 +9,8 @@ Entity Framework Core <br>
 Docker<br>
 ##
 ## 📌 Funcionalidades
-Criar Pedido: Recebe pedidos via API e publica mensagens no RabbitMQ.
-Validar Estoque: Consulta o Microserviço de Produtos para verificar a disponibilidade.
-Atualizar Estoque: Envia uma solicitação ao Microserviço de Produtos para reduzir a quantidade disponível.
-Confirmar Pedido: Atualiza o status do pedido e armazena no histórico.
-Histórico de Pedidos: Permite consultar pedidos já processados.
+Criar Pedido: Recebe pedidos via API e publica mensagens no RabbitMQ.<br>
+Validar Estoque: Consulta o Microserviço de Produtos para verificar a disponibilidade.<br>
+Atualizar Estoque: Envia uma solicitação ao Microserviço de Produtos para reduzir a quantidade disponível.<br>
+Confirmar Pedido: Atualiza o status do pedido e armazena no histórico.<br>
+Histórico de Pedidos: Permite consultar pedidos já processados.<br>
